@@ -1,65 +1,78 @@
-# Integritetspolicy för UBF Klasslistor
+# Privacy Policy - UBF Klasslistor
 
-**Senast uppdaterad:** 5 december 2025
+**Last updated:** December 9, 2025
 
-## Översikt
+## Overview
 
-UBF Klasslistor är ett Chrome-tillägg utvecklat av Utbildningsförvaltningen Göteborgs Stad för intern användning. Tillägget hjälper personal att generera klasslistor från Google Workspace.
+UBF Klasslistor is a Chrome extension developed for Utbildningsförvaltningen Göteborgs Stad (UBF) to generate student lists from Google Workspace.
 
-## Vilka uppgifter samlas in?
+## What data is collected?
 
-### Uppgifter som hämtas (men inte lagras av tillägget):
-- **Namn** på elever och lärare från Google Workspace
-- **E-postadresser** för elever och lärare
-- **Klassgruppsinformation** från Google Workspace
+The extension collects the following information:
 
-### Uppgifter som lagras lokalt:
-- **Autentiseringscache** (e-post och behörigheter) i Chrome Storage (max 1 timme)
+**From Google Workspace:**
+- Names and email addresses of students and teachers in selected classes/groups
+- Class names and school names
 
-## Hur används uppgifterna?
+## How is the data used?
 
-Uppgifterna används endast för att:
-1. Visa klasslistor för användaren
-2. Exportera klasslistor till PDF, Google Dokument eller Google Kalkylark
-3. Verifiera användarens behörighet att se specifika skolor
+Data is used **only** for:
+- Displaying student lists in the extension
+- Exporting lists to PDF (with or without QR codes)
+- Exporting lists to Google Docs
+- Exporting lists to Google Sheets
+- Exporting lists to CSV
 
-## Datadelning med tredje part
+## Where is data stored?
 
-**Vi delar inte personuppgifter med tredje part.**
+- **Temporary storage:** Data is only stored temporarily in the browser's memory during use
+- **Local cache:** Authentication status is cached locally (1 hour)
+- **Firestore:** Student data is cached in Firebase Firestore for faster access
 
-All kommunikation sker inom Göteborgs Stads egna system:
-- Google Workspace (organisationens befintliga system)
-- Firebase/Firestore (cachad data för snabbare åtkomst)
-- UBF Auth API (intern behörighetskontroll)
+## Third parties
 
-## Datalagring
+The extension communicates with the following services:
 
-| Data | Lagringsplats | Lagringstid |
-|------|---------------|-------------|
-| Elevdata (cache) | Google Cloud Firestore | Synkas dagligen, gamla poster tas bort |
-| Auth-cache | Chrome lokal lagring | Max 1 timme |
-| Exporterade filer | Användarens Google Drive | Hanteras av användaren |
+| Service | Purpose | Data sent |
+|---------|---------|-----------|
+| **Google Docs API** | Export to documents | Document content |
+| **Google Sheets API** | Export to spreadsheets | Spreadsheet content |
+| **Google Drive API** | Save exported files | File metadata |
 
-## Säkerhet
+All communication is encrypted via HTTPS.
 
-- All kommunikation sker över HTTPS (TLS 1.3)
-- OAuth 2.0 används för autentisering
-- Tillägget kan endast läsa data, inte modifiera
-- Endast behörig personal inom Göteborgs Stad kan använda tillägget
+## Permissions
 
-## Dina rättigheter
+The extension requests the following permissions:
+- **identity:** To authenticate with Google Workspace and UBF Auth API
+- **storage:** For local caching of authentication status
+- **sidePanel:** To display the interface in the Chrome side panel
+- **drive.file:** To create exported files in Google Drive
+- **documents:** To create Google Docs exports
+- **spreadsheets:** To create Google Sheets exports
 
-Som användare har du rätt att:
-- Begära information om vilka uppgifter som behandlas
-- Begära rättelse av felaktiga uppgifter
-- Begära radering av uppgifter (kontakta systemadministratör)
+## Data retention
 
-## Ändringar i policyn
+- Student data is synchronized daily and old records are removed
+- Authentication cache expires after 1 hour
+- Exported files are stored in the user's Google Drive and managed by the user
 
-Vid väsentliga ändringar uppdateras denna policy och datumet ovan ändras.
+## Your rights
 
-## Kontakt
+As a user you have the right to:
+- Request information about what data is processed
+- Request correction of incorrect data
+- Request deletion of data (contact system administrator)
 
-**Systemägare:** Utbildningsförvaltningen Göteborgs Stad  
-**Support:** [ServiceNow - UBF](https://intraservice.service-now.com/ubf)  
-**E-post:** daniel.dichter.heineman@educ.goteborg.se
+## Contact
+
+For questions about this privacy policy, contact Utbildningsförvaltningen Göteborgs Stad.
+
+## Changes
+
+We may update this policy as needed. Changes will be published on this page.
+
+---
+
+**Developer:** Utbildningsförvaltningen Göteborgs Stad  
+**Support:** [ServiceNow - UBF](https://intraservice.service-now.com/ubf)
