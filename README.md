@@ -10,6 +10,7 @@ Varje projekt har sin egen mapp med en `privacy_policy.md`-fil.
 
 | Projekt | Policy |
 |---------|--------|
+| UBF Adminverktyg | [Privacy Policy](ubf-admin-console/privacy_policy.md) |
 | UBF Klasslistor | [Privacy Policy](ubf-student-list-generator/privacy_policy.md) |
 
 ## Hur man lägger till en ny policy
