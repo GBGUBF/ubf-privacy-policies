@@ -1,0 +1,28 @@
+name: Sync to Management Board
+on:
+  issues:
+    types: [opened, labeled, closed, reopened]
+
+jobs:
+  sync_to_parent:
+    if: contains(github.event.issue.labels.*.name, 'type:Feature')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Link to Management Issue
+        env:
+          GH_TOKEN: ${{ secrets.MANAGEMENT_TOKEN }}
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          PARENT_ISSUE_DATA=$(gh issue list -R GBGUBF/.github --search "[PROJEKT] $REPO_NAME" --json number,id --jq '.[0]')
+          PARENT_NUMBER=$(echo $PARENT_ISSUE_DATA | jq -r '.number')
+          
+          if [ "$PARENT_NUMBER" != "null" ] && [ -n "$PARENT_NUMBER" ]; then
+            ISSUE_URL="${{ github.event.issue.html_url }}"
+            ACTION_TYPE="${{ github.event.action }}"
+            
+            if [ "$ACTION_TYPE" == "opened" ] || [ "$ACTION_TYPE" == "labeled" ]; then
+              gh issue comment $PARENT_NUMBER -R GBGUBF/.github -b "LINK: A new feature has started in $REPO_NAME: $ISSUE_URL"
+            elif [ "$ACTION_TYPE" == "closed" ]; then
+              gh issue comment $PARENT_NUMBER -R GBGUBF/.github -b "DONE: A feature has been completed in $REPO_NAME: $ISSUE_URL"
+            fi
+          fi
