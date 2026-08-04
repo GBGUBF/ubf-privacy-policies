@@ -1,18 +1,17 @@
 # UBF Privacy Policies
 
-Detta repo innehåller integritetspolicys för GBGUBF:s olika projekt och tillägg.
+Detta repo innehåller integritetspolicys, användarvillkor och supportsidor för GBGUBF:s olika projekt och tillägg.
 
-## Struktur
+Sidorna publiceras automatiskt via GitHub Pages på: https://gbgubf.github.io/ubf-privacy-policies/
 
-Varje projekt har sin egen mapp med en `privacy_policy.md`-fil.
+## Tillgängliga dokument
 
-## Tillgängliga policys
-
-| Projekt | Policy |
-|---------|--------|
-| UBF Adminverktyg | [Privacy Policy](ubf-admin-console/privacy_policy.md) |
-| UBF Klasslistor | [Privacy Policy](ubf-student-list-generator/privacy_policy.md) |
-| Alma (UBF Chatbot) | [Privacy Policy](ubf-chatbot-clients/privacy_policy.md) |
+| Projekt | Privacy Policy | Terms of Service | Support |
+|---------|---------------|-----------------|---------|
+| Alma (UBF Chatbot) | [Privacy Policy](ubf-chatbot-clients/privacy_policy.md) | [Terms of Service](ubf-chatbot-clients/terms_of_service.md) | [Support](ubf-chatbot-clients/support.md) |
+| UBF Adminverktyg | [Privacy Policy](ubf-admin-console/privacy_policy.md) | — | — |
+| UBF Klasslistor | [Privacy Policy](ubf-student-list-generator/privacy_policy.md) | — | — |
+| UBF Auth API | [Privacy Policy](ubf-auth-api/privacy_policy.md) | [Terms of Service](ubf-auth-api/terms_of_service.md) | — |
 
 ## Hur man lägger till en ny policy
 
@@ -26,8 +25,16 @@ Varje projekt har sin egen mapp med en `privacy_policy.md`-fil.
 ```
 ubf-privacy-policies/
 ├── README.md
-├── ubf-student-list-generator/
+├── CHANGELOG.md
+├── ubf-chatbot-clients/
+│   ├── privacy_policy.md
+│   ├── terms_of_service.md
+│   └── support.md
+├── ubf-admin-console/
 │   └── privacy_policy.md
+├── ubf-auth-api/
+│   ├── privacy_policy.md
+│   └── terms_of_service.md
 └── [framtida-projekt]/
     └── privacy_policy.md
 ```
