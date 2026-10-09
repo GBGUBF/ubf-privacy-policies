@@ -1,0 +1,13 @@
+name: Dependabot auto-merge
+
+on:
+  pull_request:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    uses: GBGUBF/ubf-project-blueprints/.github/workflows/dependabot-auto-merge.yml@main
+    secrets: inherit
